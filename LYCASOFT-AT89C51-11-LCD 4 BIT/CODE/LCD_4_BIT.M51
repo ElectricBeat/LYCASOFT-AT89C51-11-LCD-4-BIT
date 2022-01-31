@@ -1,0 +1,217 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        12/20/2018  10:28:13  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE STARTUP.obj, LCD_4_BIT.obj TO LCD_4_BIT
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  STARTUP.obj (?C_STARTUP)
+  LCD_4_BIT.obj (LCD_4_BIT)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?CLDPTR)
+
+
+LINK MAP OF MODULE:  LCD_4_BIT (?C_STARTUP)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0003H     UNIT         _DATA_GROUP_
+            IDATA   000BH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     002CH     UNIT         ?PR?_DELAY?LCD_4_BIT
+            CODE    082CH     0025H     UNIT         ?PR?_LCD_STRING?LCD_4_BIT
+            CODE    0851H     001EH     UNIT         ?PR?_LCD_COMMAND?LCD_4_BIT
+            CODE    086FH     001EH     UNIT         ?PR?_LCD_DATA?LCD_4_BIT
+            CODE    088DH     0019H     UNIT         ?C?LIB_CODE
+            CODE    08A6H     0016H     UNIT         ?PR?MAIN?LCD_4_BIT
+            CODE    08BCH     0014H     UNIT         ?PR?LCD_INTIALIZATION?LCD_4_BIT
+            CODE    08D0H     000CH     UNIT         ?C_C51STARTUP
+            CODE    08DCH     000AH     UNIT         ?CO?LCD_4_BIT
+
+
+
+OVERLAY MAP OF MODULE:   LCD_4_BIT (?C_STARTUP)
+
+
+SEGMENT                                   DATA_GROUP 
+  +--> CALLED SEGMENT                   START    LENGTH
+-------------------------------------------------------
+?C_C51STARTUP                           -----    -----
+  +--> ?PR?MAIN?LCD_4_BIT
+
+?PR?MAIN?LCD_4_BIT                      -----    -----
+  +--> ?PR?LCD_INTIALIZATION?LCD_4_BIT
+  +--> ?PR?_LCD_COMMAND?LCD_4_BIT
+  +--> ?CO?LCD_4_BIT
+  +--> ?PR?_LCD_STRING?LCD_4_BIT
+
+?PR?LCD_INTIALIZATION?LCD_4_BIT         -----    -----
+  +--> ?PR?_LCD_COMMAND?LCD_4_BIT
+
+?PR?_LCD_COMMAND?LCD_4_BIT              -----    -----
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/20/2018  10:28:13  PAGE 2
+
+
+  +--> ?PR?_DELAY?LCD_4_BIT
+
+?PR?_LCD_STRING?LCD_4_BIT               0008H    0003H
+  +--> ?PR?_LCD_DATA?LCD_4_BIT
+
+?PR?_LCD_DATA?LCD_4_BIT                 -----    -----
+  +--> ?PR?_DELAY?LCD_4_BIT
+
+
+
+SYMBOL TABLE OF MODULE:  LCD_4_BIT (?C_STARTUP)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        ?C_STARTUP
+  C:08D0H         SEGMENT       ?C_C51STARTUP
+  I:000BH         SEGMENT       ?STACK
+  C:0000H         PUBLIC        ?C_STARTUP
+  D:00E0H         SYMBOL        ACC
+  D:00F0H         SYMBOL        B
+  D:0083H         SYMBOL        DPH
+  D:0082H         SYMBOL        DPL
+  N:0000H         SYMBOL        IBPSTACK
+  N:0100H         SYMBOL        IBPSTACKTOP
+  N:0080H         SYMBOL        IDATALEN
+  C:08D3H         SYMBOL        IDATALOOP
+  N:0000H         SYMBOL        PBPSTACK
+  N:0100H         SYMBOL        PBPSTACKTOP
+  N:0000H         SYMBOL        PDATALEN
+  N:0000H         SYMBOL        PDATASTART
+  N:0000H         SYMBOL        PPAGE
+  N:0000H         SYMBOL        PPAGEENABLE
+  D:00A0H         SYMBOL        PPAGE_SFR
+  D:0081H         SYMBOL        SP
+  C:08D0H         SYMBOL        STARTUP1
+  N:0000H         SYMBOL        XBPSTACK
+  N:0000H         SYMBOL        XBPSTACKTOP
+  N:0000H         SYMBOL        XDATALEN
+  N:0000H         SYMBOL        XDATASTART
+  C:0000H         LINE#         126
+  C:08D0H         LINE#         133
+  C:08D2H         LINE#         134
+  C:08D3H         LINE#         135
+  C:08D4H         LINE#         136
+  C:08D6H         LINE#         185
+  C:08D9H         LINE#         196
+  -------         ENDMOD        ?C_STARTUP
+
+  -------         MODULE        LCD_4_BIT
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  C:0806H         PUBLIC        _delay
+  B:0090H.3       PUBLIC        EN
+  B:0090H.2       PUBLIC        RS
+  C:08A6H         PUBLIC        main
+  C:0851H         PUBLIC        _Lcd_Command
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/20/2018  10:28:13  PAGE 3
+
+
+  C:08BCH         PUBLIC        Lcd_Intialization
+  C:082CH         PUBLIC        _Lcd_String
+  C:086FH         PUBLIC        _Lcd_Data
+  -------         PROC          L?0020
+  -------         ENDPROC       L?0020
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        x
+  -------         DO            
+  D:0004H         SYMBOL        i
+  D:0002H         SYMBOL        j
+  -------         ENDDO         
+  C:0806H         LINE#         1
+  C:0806H         LINE#         2
+  C:0806H         LINE#         4
+  C:0816H         LINE#         5
+  C:082BH         LINE#         6
+  -------         ENDPROC       _DELAY
+  -------         PROC          _LCD_COMMAND
+  D:0001H         SYMBOL        cmd
+  C:0851H         LINE#         10
+  C:0853H         LINE#         11
+  C:0853H         LINE#         12
+  C:0858H         LINE#         13
+  C:085AH         LINE#         14
+  C:085AH         LINE#         15
+  C:085DH         LINE#         16
+  C:085FH         LINE#         18
+  C:0865H         LINE#         19
+  C:0867H         LINE#         20
+  C:0869H         LINE#         21
+  C:086CH         LINE#         22
+  C:086EH         LINE#         23
+  -------         ENDPROC       _LCD_COMMAND
+  -------         PROC          _LCD_DATA
+  D:0001H         SYMBOL        Data
+  C:086FH         LINE#         25
+  C:0871H         LINE#         26
+  C:0871H         LINE#         27
+  C:0876H         LINE#         28
+  C:0878H         LINE#         29
+  C:0878H         LINE#         30
+  C:087BH         LINE#         31
+  C:087DH         LINE#         33
+  C:0883H         LINE#         34
+  C:0885H         LINE#         35
+  C:0887H         LINE#         36
+  C:088AH         LINE#         37
+  C:088CH         LINE#         38
+  -------         ENDPROC       _LCD_DATA
+  -------         PROC          _LCD_STRING
+  D:0008H         SYMBOL        Str
+  C:082CH         LINE#         40
+  C:0832H         LINE#         41
+  C:0832H         LINE#         42
+  C:083DH         LINE#         43
+  C:083DH         LINE#         44
+  C:084EH         LINE#         45
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/20/2018  10:28:13  PAGE 4
+
+
+  C:0850H         LINE#         46
+  -------         ENDPROC       _LCD_STRING
+  -------         PROC          LCD_INTIALIZATION
+  C:08BCH         LINE#         48
+  C:08BCH         LINE#         49
+  C:08BCH         LINE#         50
+  C:08C1H         LINE#         51
+  C:08C6H         LINE#         52
+  C:08CBH         LINE#         53
+  -------         ENDPROC       LCD_INTIALIZATION
+  -------         PROC          MAIN
+  C:08A6H         LINE#         56
+  C:08A6H         LINE#         57
+  C:08A6H         LINE#         58
+  C:08A9H         LINE#         60
+  C:08ACH         LINE#         62
+  C:08ACH         LINE#         63
+  C:08ACH         LINE#         64
+  C:08B1H         LINE#         65
+  C:08BAH         LINE#         66
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        LCD_4_BIT
+
+  -------         MODULE        ?C?CLDPTR
+  C:088DH         PUBLIC        ?C?CLDPTR
+  -------         ENDMOD        ?C?CLDPTR
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 00D0H BYTE (10%) *
+******************************************************************************
+
+Program Size: data=12.0 xdata=0 code=233
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
